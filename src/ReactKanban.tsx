@@ -34,8 +34,8 @@ export interface ReactKanbanProps extends DragDropContextProps {
   columnStyle: Object;
   columnTitleStyle: Object;
   cardWrapperStyle: Object;
-  disableColumnDragDrop: boolean;
-  disableCardDragDrop: boolean;
+  disableColumnDragDrop: Boolean;
+  disableCardDragDrop: Boolean;
 }
 // a little function to help us with reordering the result
 const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {

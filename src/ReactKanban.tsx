@@ -34,6 +34,8 @@ export interface ReactKanbanProps extends DragDropContextProps {
   columnStyle: Object;
   columnTitleStyle: Object;
   cardWrapperStyle: Object;
+  disableColunmDragDrop: boolean;
+  disableCardDragDrop: boolean;
 }
 // a little function to help us with reordering the result
 const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {
@@ -68,9 +70,7 @@ export default class ReactKanban extends React.Component<ReactKanbanProps, {}> {
         destination.index,
       );
 
-      this.setState({
-        ordered,
-      });
+      this.setState({ ordered });
     } else {
       /* tslint:disable-next-line */
       const stillOnSamePlace = source.droppableId === destination.droppableId && source.index === destination.index;
@@ -86,7 +86,7 @@ export default class ReactKanban extends React.Component<ReactKanbanProps, {}> {
       newDestinationRows.splice(destination.index, 0, removed);
       newColumns[sourceIndex].rows = newSourceRows;
       newColumns[destinationIndex].rows = newDestinationRows;
-      this.setState({ newColumns });
+      this.setState({ columns: newColumns });
     }
     const dropReason: DropResult = {
       reason: 'DROP',
@@ -104,11 +104,13 @@ export default class ReactKanban extends React.Component<ReactKanbanProps, {}> {
       columnStyle,
       columnTitleStyle,
       cardWrapperStyle,
+      disableColunmDragDrop,
+      disableCardDragDrop,
     } = this.props;
     const { columns, ordered } = this.state;
     return (
       <DragDropContext onDragStart={onDragStart} onDragEnd={this.handleDrag}>
-        <Droppable droppableId="board" isDropDisabled={false} type="COLUMN" direction="horizontal" >
+        <Droppable droppableId="board" isDropDisabled={false} type="COLUMN" direction="horizontal">
           {(provided: DroppableProvided) => (
             <Container innerRef={provided.innerRef} {...provided.droppableProps}>
               {ordered.map((key: any, index) => (
@@ -122,6 +124,7 @@ export default class ReactKanban extends React.Component<ReactKanbanProps, {}> {
                   columnStyle={columnStyle}
                   columnWrapperStyle={columnWrapperStyle}
                   cardWrapperStyle={cardWrapperStyle}
+                  disableCardDragDrop={disableCardDragDrop}
                 />
               ))}
             </Container>

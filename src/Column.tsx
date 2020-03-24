@@ -18,6 +18,8 @@ export interface ColumnProps {
   columnTitleStyle: Object;
   columnHeaderStyle: Object;
   cardWrapperStyle: Object;
+  disableColumnDragDrop: boolean;
+  disableCardDragDrop: boolean;
 }
 
 interface DraggingProps {
@@ -77,10 +79,12 @@ export default class Column extends React.Component<ColumnProps, {}> {
       columnTitleStyle,
       columnHeaderStyle,
       cardWrapperStyle,
+      disableColumnDragDrop,
+      disableCardDragDrop,
     } = this.props;
 
     return (
-      <Draggable draggableId={column.id} index={index} isDragDisabled={false}>
+      <Draggable draggableId={column.id} index={index} isDragDisabled={!disableColumnDragDrop}>
         {(provided: DraggableProvided) => (
           <Wrapper
             innerRef={provided.innerRef}
@@ -105,6 +109,7 @@ export default class Column extends React.Component<ColumnProps, {}> {
                 column={column}
                 renderCard={renderCard}
                 cardWrapperStyle={cardWrapperStyle}
+                isDropDisabled={disableCardDragDrop}
               />
             </Container>
           </Wrapper>

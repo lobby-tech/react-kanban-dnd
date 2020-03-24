@@ -18,8 +18,8 @@ export interface ColumnProps {
   columnTitleStyle: Object;
   columnHeaderStyle: Object;
   cardWrapperStyle: Object;
-  disableColumnDragDrop: Boolean;
-  disableCardDragDrop: Boolean;
+  disableColumnDragDrop?: boolean;
+  disableCardDragDrop?: boolean;
 }
 
 interface DraggingProps {

@@ -1,3 +1,9 @@
+### 0.4.0 (2020-03-24)
+
+##### New Features
+
+*  allow disable drag n drop columns and cards ([baf0c3c](https://github.com/lobby-tech/react-kanban-dnd/commit/a0e9195a6aa3b9dff4a9599379c945c711048e74))
+
 ### 0.3.0-8 (2019-01-24)
 
 ##### New Features

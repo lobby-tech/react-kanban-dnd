@@ -34,7 +34,7 @@ export default class MyKanban extends React.Component {
         columnHeaderStyle={style.columnHeaderStyle}
         columnTitleStyle={style.columnTitleStyle}
         cardWrapperStyle={style.cardWrapperStyle}
-        disableColunmDragDrop={disableColunmDragDrop}
+        disableColumnDragDrop={disableColumnDragDrop}
         disableCardDragDrop={disableCardDragDrop}
       />
     );
@@ -60,7 +60,7 @@ That's it. Now, kanban should appear on your project.
 | **`columnHeaderStyle`** | Optional styling for the column header                                                                                                                                                                                                                                                                                  |     false      |
 | **`columnTitleStyle`**  | Optional styling for the column title                                                                                                                                                                                                                                                                                   |     false      |
 | **`cardWrapperStyle`**  | Optional styling for the card wrapper                                                                                                                                                                                                                                                                                   |     false      |
-| **`disableColunmDragDrop`**  | Optional that will be used to disable drag and drop in columns wrapper                                                                                                                                                                                                                                                                                   |     false      |
+| **`disableColumnDragDrop`**  | Optional that will be used to disable drag and drop in columns wrapper                                                                                                                                                                                                                                                                                   |     false      |
 | **`disableCardDragDrop`**  | Optional that will be used to disable drag and drop in cards wrapper                                                                                                                                                                                                                                                                                   |     false      |
 
 ## :pushpin: &nbsp; Columns array pattern
